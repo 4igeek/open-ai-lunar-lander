@@ -6,7 +6,10 @@ import pickle
 training_mode = False
 
 def eval_genomes(genomes, config):
-    env = gym.make("LunarLander-v2", render_mode="human")
+    if training_mode:
+        env = gym.make("LunarLander-v2")
+    else:
+        env = gym.make("LunarLander-v2", render_mode="human")
     for genome_id, genome in genomes:
         observation, info = env.reset(seed=42)
         net = neat.nn.FeedForwardNetwork.create(genome, config)
@@ -91,4 +94,3 @@ if __name__ == '__main__':
         run_neat(config_path)
     else:
         run_saved_model(config_path, 'winner.pkl')
-    
