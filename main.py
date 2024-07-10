@@ -3,6 +3,8 @@ import neat
 import numpy as np
 import pickle
 
+training_mode = False
+
 def eval_genomes(genomes, config):
     env = gym.make("LunarLander-v2", render_mode="human")
     for genome_id, genome in genomes:
@@ -85,7 +87,8 @@ def run_saved_model(config_file, model_path):
 
 if __name__ == '__main__':
     config_path = "config-feedforward"  # Update this path
-    # run_neat(config_path)
+    if training_mode:
+        run_neat(config_path)
+    else:
+        run_saved_model(config_path, 'winner.pkl')
     
-    # To run an existing saved model, uncomment the following line and provide the path to the saved model
-    run_saved_model(config_path, 'winner.pkl')
