@@ -1,5 +1,5 @@
 # OpenAI Lunar Lander
-A very crude solution to solving OpenAI lunar lander using NEAT (neuroevolution of augmenting topologies)
+A very **crude solution** to solving OpenAI lunar lander using NEAT (neuroevolution of augmenting topologies)
 
 Once you've cloned, setup a local python environment and then run `pip install -r requirements.txt` to install dependencies.
 
